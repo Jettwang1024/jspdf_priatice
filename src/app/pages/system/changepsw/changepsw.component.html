@@ -1,0 +1,42 @@
+<form [formGroup]="userForm" id="userForm" (ngSubmit)="changePass()">
+    <div class="card ">
+        <div class="grid p-fluid ">
+            <div class="col-20 md:col-10 lg:col-18 ">
+                <label class=""></label>
+                <app-menubar [ProgNo]="ProgNo"></app-menubar>
+            </div>
+        </div>
+        <div class="field grid">
+            <label htmlFor="oldpass" class="col-12 mb-2 md:col-2 md:mb-0" require>舊密碼</label>
+            <div class="col-12 md:col-10">
+                <p-password formControlName="oldpass" id="oldpass" class="ng-invalid ng-invalid" [ngClass]="{'is-invalid': submitted && userForm.controls.oldpass.errors}"></p-password>
+                <app-control-messages [onerror]="submitted" [control]="userForm.get('oldpass')"></app-control-messages>
+            </div>
+        </div>
+        <div class="field grid">
+            <label htmlFor="newpass1" class="col-12 mb-2 md:col-2 md:mb-0">新密碼</label>
+            <div class="col-12 md:col-10">
+                <p-password formControlName="newpass1" class="ng-invalid" [ngClass]="{'is-invalid': submitted && userForm.controls.newpass1.errors}"></p-password>
+                <app-control-messages [onerror]="submitted" [control]="userForm.get('newpass1')"></app-control-messages>
+            </div>
+        </div>
+        <div class="field grid">
+            <label htmlFor="newpass2" class="col-12 mb-2 md:col-2 md:mb-0">確認新密碼</label>
+            <div class="col-12 md:col-10">
+                <p-password formControlName="newpass2" class="ng-invalid" [ngClass]="{'is-invalid': submitted && userForm.controls.newpass2.errors}"></p-password>
+                <app-control-messages [onerror]="submitted" [control]="userForm.get('newpass2')"></app-control-messages>
+                <span class="p-error" *ngIf="f.newpass2.touched && f.newpass2.errors?.['passwordMismatch']">
+                  密碼確認不符
+              </span>
+            </div>
+        </div>
+
+        <small *ngIf="submitted && error" id="username-help" class="p-error">{{ error }}</small>
+        <div style=" text-align:right;margin:0px auto 0px auto;">
+            <p-button pButton type="submit" severity="info" icon="pi pi-check" form="userForm" label="確認" [loading]="loading" class="p-button-sm"></p-button>
+        </div>
+    </div>
+</form>
+<p></p>
+
+<p-toast position="center"></p-toast>

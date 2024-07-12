@@ -1,0 +1,46 @@
+<div class="layout-topbar">
+    <a class="layout-topbar-logo" routerLink="">
+        <img src="assets/layout/images/{{layoutService.config().colorScheme === 'light' ? 'toms-logo' : 'toms-logo'}}.png" alt="logo">
+        <span>湯姆熊雲端管理平台</span>
+    </a>
+
+    <button #menubutton class="p-link layout-menu-button layout-topbar-button" (click)="layoutService.onMenuToggle()">
+      <i class="pi pi-bars"></i>
+  </button>
+
+    <button #topbarmenubutton class="p-link layout-topbar-menu-button layout-topbar-button" (click)="layoutService.showProfileSidebar()">
+      <i class="pi pi-ellipsis-v"></i>
+  </button>
+    <div>
+        <form [formGroup]="queryForm" (ngSubmit)="onSubmit(queryForm);">
+            <span class="p-input-icon-right">
+          <input type="text" pInputText placeholder="搜尋選單的名稱編號" id="query_data" formControlName="query_data"/>
+          <i class="pi pi-search" onclick="submitQuery(queryForm);"></i>
+      </span>
+        </form>
+    </div>
+    <div #topbarmenu class="layout-topbar-menu" [ngClass]="{'layout-topbar-menu-mobile-active': layoutService.state.profileSidebarVisible}">
+        <!--
+        <button class="p-link layout-topbar-button">
+          <i class="pi pi-calendar"></i>
+          <span>Calendar</span>
+      </button>
+      -->
+        <div style="text-align:center;color:rgb(146, 60, 60);">
+            <span>{{ user }}</span>
+            <button class="p-link layout-topbar-button" (click)="op.toggle($event)">
+          <i class="pi pi-user"></i>
+          <span>Profile</span>
+      </button>
+            <p-overlayPanel #op [showCloseIcon]="true">
+                <button pButton type="button" label="登出" (click)="logout()"></button>
+            </p-overlayPanel>
+        </div>
+        <!--
+      <button class="p-link layout-topbar-button" [routerLink]="'/documentation'">
+          <i class="pi pi-cog"></i>
+          <span>Settings</span>
+      </button>
+      -->
+    </div>
+</div>

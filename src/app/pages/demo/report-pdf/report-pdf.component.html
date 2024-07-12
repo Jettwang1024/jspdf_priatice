@@ -1,0 +1,40 @@
+<div class="header">
+  <h2 class="report-title">100順儷健康事業股份有限公司<br>轉帳傳票</h2>
+  <span class="print-date">印表日期: {{ currentDate }}</span>
+</div>
+
+<p-table [value]="flattenedRowData" [paginator]="true" [rows]="10" [responsive]="true">
+  <ng-template pTemplate="header">
+    <tr>
+      <th *ngFor="let col of cols">{{ col.header }}</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-rowData>
+    <tr>
+      <td>{{ rowData.item }}</td>
+      <td>{{ rowData.accountCode }}</td>
+      <td>{{ rowData.accountName }}</td>
+      <td>{{ rowData.department }}</td>
+      <td>{{ rowData.subject }}</td>
+      <td>{{ rowData.description }}</td>
+      <td>{{ rowData.debitAmount }}</td>
+      <td>{{ rowData.creditAmount }}</td>
+    </tr>
+  </ng-template>
+</p-table>
+
+<div class="total-price">合計: {{ totalPrice | currency }}</div>
+
+<p-button label="匯出 Excel" (click)="exportToExcel()" rounded="true"></p-button>
+<p-button label="匯出 PDF" (click)="exportToPDF()" rounded="true"></p-button>
+
+<div style="display: block; height: 20px"></div>
+
+<div class="file-upload">
+  <p-button type="button" label="選擇檔案" icon="pi pi-upload" (click)="fileInput.click()" rounded="true"></p-button>
+  <span>{{ fileName || "未選擇任何檔案" }}</span>
+  <input type="file" #fileInput (change)="onFileSelected($event)" accept=".csv" style="display: none"/>
+</div>
+
+<p-button *ngIf="importedProducts.length > 0" label="新增資料" (click)="insertData()" rounded="true"></p-button>
+

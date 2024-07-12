@@ -1,0 +1,58 @@
+{
+    "company": "100順儷健康事業股份有限公司",
+    "transactions": [
+      {
+        "date": "113/01/01",
+        "voucherNumber": "202401010001",
+        "department": "總公司",
+        "entries": [
+          {
+            "accountCode": "1112000",
+            "departmentCode": "100",
+            "amount": "30,000",
+            "description": "上期結轉零用金／週轉金"
+          },
+          {
+            "accountCode": "1113100",
+            "departmentCode": "100",
+            "amount": "84,521",
+            "description": "上期結轉銀行存款-台新銀行(活存)"
+          },
+          {
+            "accountCode": "1113300",
+            "departmentCode": "100",
+            "amount": "582,757",
+            "description": "上期結轉銀行存款-第一銀行(活存)"
+          }
+         
+        ]
+      },
+      {
+        "date": "113/01/17",
+        "voucherNumber": "240117000003",
+        "department": "總公司",
+        "entries": [
+          {
+            "accountCode": "1141700",
+            "departmentCode": "00",
+            "amount": "7,200",
+            "description": "113/01 總倉銷售-優良(G24011700027-28)(VY04871900)"
+          },
+          {
+            "accountCode": "2204000",
+            "departmentCode": "00",
+            "amount": "343",
+            "description": "113/01 總倉銷售-優良(G24011700027-28)(VY04871900)"
+          },
+          {
+            "accountCode": "4111200",
+            "departmentCode": "00",
+            "amount": "6,857",
+            "description": "113/01 總倉銷售-優良(G24011700027-28)(VY04871900)"
+          }
+          
+        ]
+      }
+      
+    ]
+  }
